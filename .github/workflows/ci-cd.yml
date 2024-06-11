@@ -44,10 +44,10 @@ jobs:
       - name: Run tests
         working-directory: dcrm
         env:
-          DB_NAME: crmdb
-          DB_USER: root
-          DB_PASSWORD: admin123
-          DB_HOST: sqldb
+          DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+          DATABASE_NAME: crmdb
+          DATABASE_USERNAME: root          
+          DATABASE_PASSWORD: admin123    
           DATABASE_ENDPOINT: 127.0.0.1
         run: |
           python manage.py migrate
