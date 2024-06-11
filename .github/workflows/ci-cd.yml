@@ -14,8 +14,6 @@ jobs:
     services:
       sqldb:
         image: mysql:latest
-        ports:
-          - 3306:3306
         env:
           MYSQL_ROOT_PASSWORD: admin123
           MYSQL_DATABASE: crmdb
@@ -48,7 +46,7 @@ jobs:
           DATABASE_NAME: crmdb
           DATABASE_USERNAME: root          
           DATABASE_PASSWORD: admin123    
-          DATABASE_ENDPOINT: 127.0.0.1
+          DATABASE_ENDPOINT: sqldb
         run: |
           python manage.py migrate
           python manage.py test
