@@ -75,8 +75,6 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-# Get the IP address of the MySQL service container
-MYSQL_HOST = socket.gethostbyname('sqldb')
 
 DATABASES = {
         'default': {
@@ -84,8 +82,8 @@ DATABASES = {
             'NAME': 'crmdb',
             'USER': 'root',
             'PASSWORD': 'admin123',
-            'HOST': MYSQL_HOST,
-            'PORT': ''
+            'HOST': 'sqldb',
+            'PORT': '3306'
         }
     }
 
