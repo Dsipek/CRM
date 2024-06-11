@@ -42,6 +42,7 @@ jobs:
           pip install -r dcrm/requirements.txt
 
       - name: Run tests
+        working-directory: dcrm
         env:
           DB_NAME: crmdb
           DB_USER: root
@@ -52,6 +53,7 @@ jobs:
           python manage.py test
 
       - name: Build Docker image
+        working-directory: dcrm
         run: docker build . -t my-django-app
 
       - name: Log in to Docker Hub
