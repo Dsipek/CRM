@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import socket
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -74,17 +75,19 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# Get the IP address of the MySQL service container
+MYSQL_HOST = socket.gethostbyname('sqldb')
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'crmdb',
-        'USER': 'root',
-        'PASSWORD': 'admin123',
-        'HOST': 'sqldb',
-        'PORT': ''
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'crmdb',
+            'USER': 'root',
+            'PASSWORD': 'admin123',
+            'HOST': MYSQL_HOST,
+            'PORT': ''
+        }
     }
-}
 
 
 # Password validation
