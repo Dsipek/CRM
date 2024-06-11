@@ -47,7 +47,7 @@ jobs:
           DB_NAME: crmdb
           DB_USER: root
           DB_PASSWORD: admin123
-          DB_HOST: 127.0.0.1
+          DB_HOST: sqldb
         run: |
           python manage.py migrate
           python manage.py test
