@@ -82,8 +82,8 @@ DATABASES = {
             'NAME': 'crmdb',
             'USER': 'root',
             'PASSWORD': 'admin123',
-            'HOST': '127.0.0.1',
-            'PORT': '3306'
+            'HOST': 'sqldb',
+            'PORT': ''
         }
     }
 
