@@ -48,6 +48,7 @@ jobs:
           DB_USER: root
           DB_PASSWORD: admin123
           DB_HOST: sqldb
+          DATABASE_ENDPOINT: 127.0.0.1
         run: |
           python manage.py migrate
           python manage.py test
