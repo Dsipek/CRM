@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-$c_f%-lpavisbv71&(_j73*bzl(ag9(@2i35l%h%alapaa90qf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1', '.vercel.app', 'localhost'
+]
 
 
 # Application definition
@@ -76,16 +78,23 @@ WSGI_APPLICATION = 'dcrm.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.mysql',
+#             'NAME': 'crmdb',
+#             'USER': 'root',
+#             'PASSWORD': 'admin123',
+#             'HOST': '127.0.0.1',
+#             'PORT': '3306'
+#         }
+#     }
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'crmdb',
-            'USER': 'root',
-            'PASSWORD': 'admin123',
-            'HOST': 'sqldb',
-            'PORT': ''
-        }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',  # This creates an SQLite file in your project directory
     }
+}
+
 
 
 # Password validation
