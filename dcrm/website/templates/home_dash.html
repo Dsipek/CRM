@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container mt-5">
+    <h2 class="text-center">Dashboard</h2h1>
+        <div class="row text-center mt-4">
+            <div class="col-md-4">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body">
+                        <h5 class="card-title">Records</h5>
+                        <p class="card-text">Show records</p>
+                        <div class="d-flex flex-row justify-content-center mt-auto">
+                            <a href="{% url 'home' %}" class="align-self-end btn btn-primary w-30 mb-2">
+                                Show records
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 2</h5>
+                        <p class="card-text">Information about Modal 2.</p>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal2">
+                            Open Modal 2
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body">
+                        <h5 class="card-title">Card 3</h5>
+                        <p class="card-text">Information about Modal 3.</p>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal3">
+                            Open Modal 3
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>        
+        <!-- Modal 1 -->
+        <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal1Label">Modal 1</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        This is the content of Modal 1.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+{% endif %}
+
+{% endblock %}

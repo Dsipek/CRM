@@ -3,12 +3,14 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .forms import SignUpForm, AddRecordForm
 from .models import Record
-
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     records = Record.objects.all()
+    return render(request, 'home.html', {'records':records})
 
-    # Check to see if logging in
+def dashboard(request):
+        # Check to see if logging in
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -17,12 +19,12 @@ def home(request):
         if user is not None:
             login(request, user)
             messages.success(request, "You have been logged in")
-            return redirect('home')
+            return redirect('home_dash')
         else:
             messages.success(request, "There was an error logging in, Please try again.")
-            return redirect('home')
+            return redirect('home_dash')
     else:
-        return render(request, 'home.html', {'records':records})
+        return render(request, 'home_dash.html')
 
 def logout_user(request):
     logout(request)
@@ -90,5 +92,5 @@ def update_record(request, pk):
         return render(request, 'update_record.html', {'form':form})
     else:
         messages.success(request, "You must be logged in to do that")
-        return redirect('home')
+        return redirect('home_dash')
             
