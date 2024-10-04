@@ -9,7 +9,7 @@
     {% csrf_token %}
     {% if form.errors %}
         <div class="alert-warning alert-dismissible fade show" role="alert">
-            Your form gas errors!
+            Your form has errors!
             {% for field in form %}
                 {% if field.errors %}
                     {{ field.errors}}

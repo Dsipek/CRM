@@ -42,7 +42,7 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login(request, user)
             messages.success(request, "You have successfuly registered.")
-            return redirect('home')
+            return redirect('home_dash')
     else:
         form = SignUpForm()
         return render(request, 'register.html', {'form':form})
