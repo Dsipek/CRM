@@ -1,47 +1,68 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
 {% if user.is_authenticated %}
 <div class="container mt-5">
-    <h2 class="text-center">Dashboard</h2h1>
-        <div class="row text-center mt-4">
-            <div class="col-md-4">
+    <div class="card bg-light py-5 px-4 shadow-sm rounded">
+        <h1 class="text-center mb-5">Manage your buissness</h1>
+                    <!-- First fow of cards -->
+        <div class="row text-center justify-content-center mb-4">
+            <div class="col-md-3">
                 <div class="card h-100 d-flex flex-column">
                     <div class="card-body">
-                        <h5 class="card-title">Records</h5>
-                        <p class="card-text">Show records</p>
+                        <h5 class="card-title">Customer list</h5>
+                        <img src="{% static '/crm/images/bookshelf.svg' %}" alt="Bookshelf Icon" class="img-fluid mb-3" style="width: 50px;">
+                        <p class="card-text">Show list of customers</p>
                         <div class="d-flex flex-row justify-content-center mt-auto">
-                            <a href="{% url 'home' %}" class="align-self-end btn btn-primary w-30 mb-2">
+                            <a href="{% url 'home' %}" class="align-self-end btn btn-primary-custom">
                                 Show records
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="card h-100 d-flex flex-column">
                     <div class="card-body">
-                        <h5 class="card-title">Card 2</h5>
-                        <p class="card-text">Information about Modal 2.</p>
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modal2">
-                            Open Modal 2
+                        <h5 class="card-title">Vendors list</h5>
+                        <img src="{% static '/crm/images/bookshelf.svg' %}" alt="Bookshelf Icon" class="img-fluid mb-3" style="width: 50px;">
+                        <p class="card-text">Show list of vendors</p>
+                        <button type="button" class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#modal2">
+                            Show records
                         </button>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+        </div>
+        <!--Second row of cards -->
+        <div class="row text-center justify-content-center">
+            <div class="col-md-3">
                 <div class="card h-100 d-flex flex-column">
                     <div class="card-body">
-                        <h5 class="card-title">Card 3</h5>
-                        <p class="card-text">Information about Modal 3.</p>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modal3">
-                            Open Modal 3
+                        <h5 class="card-title">List orders</h5>
+                        <img src="{% static '/crm/images/archive.svg' %}" alt="archive icon" class="img-fluid mb-3" style="width: 50px;">
+                        <p class="card-text">Show list of orders</p>
+                        <button type="button" class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#modal3">
+                           Show list
                         </button>
                     </div>
                 </div>
             </div>
-        </div>        
+            <div class="col-md-3">
+                <div class="card h-100 d-flex flex-column">
+                    <div class="card-body">
+                        <h5 class="card-title">Dashboard</h5>
+                        <img src="{% static '/crm/images/bar-chart-line.svg' %}" alt="bar chart icon" class="img-fluid mb-3" style="width: 50px;">
+                        <p class="card-text">Open dashboard</p>
+                        <button type="button" class="btn btn-primary-custom" data-bs-toggle="modal" data-bs-target="#modal3">
+                            Open dashboard
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>     
         <!-- Modal 1 -->
         <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
             <div class="modal-dialog">
@@ -59,6 +80,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </div>
 {% else %}
     <div class="col-md-6 offset-md-3"></div>

@@ -1,0 +1,9 @@
+.btn-primary-custom {
+    background-color: #6750A4; /* Material 3 light primary */
+    color: white; /* Ensure the text is visible */
+    border: none;
+}
+
+.btn-primary-custom:hover {
+    background-color: #5B45A0; /* Slightly darker color on hover */
+}

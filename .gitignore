@@ -16,6 +16,8 @@ venv.bak/
 .bm/
 node_modules/
 crm_env/
+__pycache__/
+.pyc
 
 # Django stuff:
 *.log
@@ -31,7 +33,7 @@ docker-compose.override.yml
 
 # Static files
 staticfiles/
-static/
+nodemodules/
 
 # Media files
 media/
@@ -62,3 +64,6 @@ dmypy.json
 
 # Environments
 .env
+
+#MacOS files
+.DS_Store
